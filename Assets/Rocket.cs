@@ -24,6 +24,8 @@ public class Rocket : MonoBehaviour {
     enum GameState { Alive, Dying, Transcending };
     GameState gameState = GameState.Alive;
 
+    [SerializeField] Boolean collisionsDisabled = false;
+
     void Start() {
         rigidBody = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
@@ -35,6 +37,8 @@ public class Rocket : MonoBehaviour {
             RespondToThrustInput();
             RespondToRotateInput();
         }
+
+        RespondToDebugKeys();
     }
 
     private void RespondToThrustInput() {
@@ -70,8 +74,16 @@ public class Rocket : MonoBehaviour {
         rigidBody.freezeRotation = false; // Resume Physics rotation controls
     }
 
+    private void RespondToDebugKeys() {
+        if (Input.GetKeyDown(KeyCode.L)) {
+            LoadNextLevel();
+        } else if (Input.GetKeyDown(KeyCode.C)) {
+            collisionsDisabled = !collisionsDisabled;
+        }
+    }
+
     private void OnCollisionEnter(Collision collision) {
-        if (gameState != GameState.Alive) {
+        if (gameState != GameState.Alive || collisionsDisabled) {
             return;
         }
         switch (collision.gameObject.tag) {
