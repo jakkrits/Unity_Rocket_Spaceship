@@ -7,13 +7,22 @@ using UnityEngine.SceneManagement;
 public class Rocket : MonoBehaviour {
     Rigidbody rigidBody;
     AudioSource audioSource;
+
     [SerializeField] float rcsThrust = 250f;
-    [SerializeField] float mainThrust = 50f;
-    [SerializeField] float loadingTime = 3f;
+    [SerializeField] float mainThrust = 1500f;
+    [SerializeField] float loadingTime = 1.5f;
+
+    [SerializeField] AudioClip mainEngine;
+    [SerializeField] AudioClip death;
+    [SerializeField] AudioClip success;
+
+    [SerializeField] ParticleSystem mainEngineParticle;
+    [SerializeField] ParticleSystem deathParticle;
+    [SerializeField] ParticleSystem successParticle;
+
 
     enum GameState { Alive, Dying, Transcending };
-    GameState gameState;
-    gameState = GameState.Alive;
+    GameState gameState = GameState.Alive;
 
     void Start() {
         rigidBody = GetComponent<Rigidbody>();
@@ -23,23 +32,29 @@ public class Rocket : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (gameState == GameState.Alive) {
-            Thrust();
-            Rotate();
+            RespondToThrustInput();
+            RespondToRotateInput();
         }
     }
 
-    private void Thrust() {
+    private void RespondToThrustInput() {
         if (Input.GetKey(KeyCode.Space)) {
-            rigidBody.AddRelativeForce(Vector3.up * mainThrust);
-            if (!audioSource.isPlaying) {
-                audioSource.Play();
-            }
+            ApplyThrust();
         } else {
             audioSource.Stop();
+            mainEngineParticle.Stop();
         }
     }
 
-    private void Rotate() {
+    private void ApplyThrust() {
+        rigidBody.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
+        if (!audioSource.isPlaying) { // if no thrusting sound is currently playing
+            audioSource.PlayOneShot(mainEngine);
+        }
+        mainEngineParticle.Play();
+    }
+
+    private void RespondToRotateInput() {
         rigidBody.freezeRotation = true; // Manual rotation control
 
         float rotationThisFrame = rcsThrust * Time.deltaTime;
@@ -61,16 +76,20 @@ public class Rocket : MonoBehaviour {
         }
         switch (collision.gameObject.tag) {
             case "Friendly":
-                print("Friendly");
                 break;
             case "Finish":
                 gameState = GameState.Transcending;
+                audioSource.Stop();
+                audioSource.PlayOneShot(success);
+                successParticle.Play();
                 Invoke("LoadNextLevel", loadingTime);
                 break;
             default:
                 gameState = GameState.Dying;
                 Invoke("LoadFirstLevel", loadingTime);
-                print("Dead");
+                audioSource.Stop();
+                audioSource.PlayOneShot(death);
+                deathParticle.Play();
                 break;
         }
     }

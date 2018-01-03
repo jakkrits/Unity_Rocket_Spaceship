@@ -882,7 +882,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4415404137401982, guid: 260261f6be9f844d2a6a7ea7f98d7b34, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.541
+      value: 2.31
       objectReference: {fileID: 0}
     - target: {fileID: 4415404137401982, guid: 260261f6be9f844d2a6a7ea7f98d7b34, type: 2}
       propertyPath: m_LocalPosition.y
@@ -915,26 +915,6 @@ Prefab:
     - target: {fileID: 1448260663700982, guid: 260261f6be9f844d2a6a7ea7f98d7b34, type: 2}
       propertyPath: m_Name
       value: Obstruccle 1 (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4415404137401982, guid: 260261f6be9f844d2a6a7ea7f98d7b34, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 2.6919565
-      objectReference: {fileID: 0}
-    - target: {fileID: 4415404137401982, guid: 260261f6be9f844d2a6a7ea7f98d7b34, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.19948483
-      objectReference: {fileID: 0}
-    - target: {fileID: 4415404137401982, guid: 260261f6be9f844d2a6a7ea7f98d7b34, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.43188694
-      objectReference: {fileID: 0}
-    - target: {fileID: 4415404137401982, guid: 260261f6be9f844d2a6a7ea7f98d7b34, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0.056
-      objectReference: {fileID: 0}
-    - target: {fileID: 4415404137401982, guid: 260261f6be9f844d2a6a7ea7f98d7b34, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -89.62
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 260261f6be9f844d2a6a7ea7f98d7b34, type: 2}

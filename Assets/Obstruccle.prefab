@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33012528768446104}
   - component: {fileID: 65431392589321702}
   - component: {fileID: 23528229194477606}
+  - component: {fileID: 114907089790688802}
   m_Layer: 0
   m_Name: Obstruccle
   m_TagString: Untagged
@@ -35,13 +36,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1448260663700982}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.22, y: 5.59, z: -0.07}
-  m_LocalScale: {x: 6.543745, y: 0.5182119, z: 5.01523}
+  m_LocalRotation: {x: 0.0003463984, y: 0.00034410664, z: -0.70475596, w: 0.70944965}
+  m_LocalPosition: {x: 2.31, y: -1.697, z: 0.909}
+  m_LocalScale: {x: 0.43188694, y: 2.6919565, z: 0.19948483}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.056, y: 0, z: -89.62}
 --- !u!23 &23528229194477606
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -95,3 +96,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114907089790688802
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1448260663700982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef535b80c243044ca9907d1d7c49e2fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementVector: {x: -20, y: 0, z: 0}
+  period: 2
+  movementFactor: 0
