@@ -1,11 +1,20 @@
 fileFormatVersion: 2
-guid: fe2bf54da096d4254b3268ddfada4e89
-timeCreated: 1514564501
+guid: bcef8002097fa494d86cc4af5189d403
+timeCreated: 1515163576
 licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - mainEngine: {fileID: 8300000, guid: 7ccb97506644e4166924688f9e7707ba, type: 3}
+  - death: {fileID: 8300000, guid: a02dc15c2f6b24c0aabbb7a23e7f3b30, type: 3}
+  - success: {fileID: 8300000, guid: 7fa8b1a88d6074e4c808c65de972b792, type: 3}
+  - mainEngineParticle: {fileID: 198100719057022332, guid: 2e83ec38ffaed4584b59141b704b4f95,
+      type: 2}
+  - deathParticle: {fileID: 198204746014789312, guid: 6ca62959326bb4aa1b5ce52585bcc6e7,
+      type: 2}
+  - successParticle: {fileID: 198631066050499358, guid: 511ffed2c8de9493d9cb0436ac3f6c87,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

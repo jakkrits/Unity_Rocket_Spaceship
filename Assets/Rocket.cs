@@ -52,11 +52,13 @@ public class Rocket : MonoBehaviour {
     }
 
     private void ApplyThrust() {
+        print("Applying Thrust");
         rigidBody.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
         if (!audioSource.isPlaying) { // if no thrusting sound is currently playing
             audioSource.PlayOneShot(mainEngine);
         }
         mainEngineParticle.Play();
+        print(mainEngineParticle.isPlaying);
     }
 
     private void RespondToRotateInput() {
