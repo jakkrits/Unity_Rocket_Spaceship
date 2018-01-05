@@ -12,13 +12,13 @@ public class Rocket : MonoBehaviour {
     [SerializeField] float mainThrust = 1500f;
     [SerializeField] float loadingTime = 1.5f;
 
-    [SerializeField] AudioClip mainEngine;
-    [SerializeField] AudioClip death;
-    [SerializeField] AudioClip success;
+    [SerializeField] AudioClip mainEngine = null;
+    [SerializeField] AudioClip death = null;
+    [SerializeField] AudioClip success = null;
 
-    [SerializeField] ParticleSystem mainEngineParticle;
-    [SerializeField] ParticleSystem deathParticle;
-    [SerializeField] ParticleSystem successParticle;
+    [SerializeField] ParticleSystem mainEngineParticle = null;
+    [SerializeField] ParticleSystem deathParticle = null;
+    [SerializeField] ParticleSystem successParticle = null;
 
 
     enum GameState { Alive, Dying, Transcending };
@@ -115,15 +115,12 @@ public class Rocket : MonoBehaviour {
 
     private void LoadNextLevel() {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        int nextSceneIndex;
-        if (currentSceneIndex <= SceneManager.sceneCount) {
-            nextSceneIndex = currentSceneIndex + 1;
-            print("Current = " + currentSceneIndex);
-            print("Next = " + nextSceneIndex);
-            SceneManager.LoadScene(nextSceneIndex);
-        } else {
-            currentSceneIndex = 0;
-            LoadFirstLevel();
+        int nextSceneIndex = currentSceneIndex + 1;
+        print(currentSceneIndex);
+        print(nextSceneIndex);
+        if (nextSceneIndex >= SceneManager.sceneCountInBuildSettings) {
+            nextSceneIndex = 0;
         }
+        SceneManager.LoadScene(nextSceneIndex);
     }
 }
