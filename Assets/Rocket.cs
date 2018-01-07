@@ -62,7 +62,8 @@ public class Rocket : MonoBehaviour {
     }
 
     private void RespondToRotateInput() {
-        rigidBody.freezeRotation = true; // Manual rotation control
+        // rigidBody.freezeRotation = true; // Manual rotation control
+        rigidBody.angularVelocity = Vector3.zero; // Change from freezeRotation to set angular velocity to zero
 
         float rotationThisFrame = rcsThrust * Time.deltaTime;
 
