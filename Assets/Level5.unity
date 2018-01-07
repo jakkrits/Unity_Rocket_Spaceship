@@ -1090,7 +1090,7 @@ Prefab:
     - target: {fileID: 20449948714225318, guid: 7842e3a6af17e43a0b820414c1877306,
         type: 2}
       propertyPath: field of view
-      value: 27.6
+      value: 33.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7842e3a6af17e43a0b820414c1877306, type: 2}
